@@ -70,7 +70,7 @@ class EventLogClient:
     def _convert_data(self, data: list[Model]) -> list[tuple[Any]]:
         return [
             (
-                self._to_snake_case(event.event_type),
+                self._to_snake_case(event.__class__.__name__),
                 timezone.now(),
                 settings.ENVIRONMENT,
                 event.model_dump_json(),
