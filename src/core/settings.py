@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     # project apps
     'users',
+    'core.event_log',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,7 @@ CLICKHOUSE_URI = (
     f'{CLICKHOUSE_PROTOCOL}'
 )
 CLICKHOUSE_EVENT_LOG_TABLE_NAME = 'event_log'
+CLICKHOUSE_BATCH_SIZE = env.int('CLICKHOUSE_BATCH_SIZE', default=1000)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
